@@ -19,6 +19,7 @@ def da_boas_vindas
     puts "Começaremos o jogo para você, " + nome
 end
 
+
 # função
 def sorteia_numero_secreto
     puts "Escolhendo um número secreto entre 0 e 200..."
@@ -35,6 +36,7 @@ def sorteia_numero_secreto
     # return sorteado
 end
 
+
 # função
 def pede_um_numero(tentativa, limite_de_tentativas)
     # 3 quebras de linha
@@ -48,6 +50,7 @@ def pede_um_numero(tentativa, limite_de_tentativas)
     # to_i converter para inteiro
     chute.to_i
 end
+
 
 # função
 def verifica_se_acertou(numero_secreto, chute)
@@ -71,6 +74,7 @@ def verifica_se_acertou(numero_secreto, chute)
     # ou
     false
 end
+
 
 # invocando a função da_boas_vindas
 da_boas_vindas

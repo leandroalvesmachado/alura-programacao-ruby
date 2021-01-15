@@ -42,3 +42,6 @@ puts 175 <= 175
 for dedos in 1..3
     puts "Contando " + dedos.to_s
 end
+
+# criando array
+chutes = [176, 100, 130, 150, 175]
