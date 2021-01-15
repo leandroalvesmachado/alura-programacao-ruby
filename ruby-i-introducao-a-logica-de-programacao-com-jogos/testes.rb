@@ -30,3 +30,15 @@ puts 175 < 176
 
 # return true
 puts 175 <= 175
+
+# outra forma de comentar, pouco usada
+=begin
+    comentario de varias
+    linhas
+=end
+
+# laço for
+# dedos.to_s = convertendo para string
+for dedos in 1..3
+    puts "Contando " + dedos.to_s
+end
