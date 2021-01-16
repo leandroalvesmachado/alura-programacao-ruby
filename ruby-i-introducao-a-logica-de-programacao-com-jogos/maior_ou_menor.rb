@@ -9,14 +9,15 @@ def da_boas_vindas
     # captura o valor digitado no terminal e atribui a variavel nome
     # outra forma de captura o valor já com o puts
     # puts "Qual é o seu nome?" + gets
-    nome = gets
+    # strip remove os caracteres em branco do inicio e do fim da string
+    nome = gets.strip
 
     puts
     puts
     puts
     # concatenando
     # não precisou converter o nome para string, pois já recebe uma string digitada pelo usuario
-    puts "Começaremos o jogo para você, " + nome
+    puts "Começaremos o jogo para você, #{nome}"
 end
 
 
@@ -38,14 +39,18 @@ end
 
 
 # função
-def pede_um_numero(tentativa, limite_de_tentativas)
+def pede_um_numero(chutes, tentativa, limite_de_tentativas)
     # 3 quebras de linha
     puts "\n\n\n"
     #to_s = convertendo para string
-    puts "Tentativa " + tentativa.to_s + " de " + limite_de_tentativas.to_s
+    # dessa forma não necessita escrever variavel.to_s (já executa implicitamente)
+    puts "Tentativa #{tentativa} de #{limite_de_tentativas}"
+    # funciona array to string
+    puts "Chutes até agora: #{chutes}"
     puts "Entre com o número"
-    chute = gets
-    puts "Será que acertou? Você chutou " + chute
+    # strip remove os caracteres em branco do inicio e do fim da string
+    chute = gets.strip
+    puts "Será que acertou? Você chutou #{chute}"
 
     # to_i converter para inteiro
     chute.to_i
@@ -83,13 +88,26 @@ da_boas_vindas
 # numero_secreto guardando o retorno da função
 numero_secreto = sorteia_numero_secreto
 
+pontos_ate_agora = 1000
 limite_de_tentativas = 5
+chutes = []
 
 # executando qtd limite_de_tentativas
 for tentativa in 1..limite_de_tentativas
     # chute = pede_um_numero(tentativa, limite_de_tentativas)
     # ou
-    chute = pede_um_numero tentativa, limite_de_tentativas
+    chute = pede_um_numero chutes, tentativa, limite_de_tentativas
+
+    # insere um valor na ultima posição do array
+    chutes << chute
+
+    # quando se usa algum numero com casa decimais (ponto flutuante), o retorno é um numero de ponto flutuante (float)
+    # quando a conta é realizada entre números inteiros, apenas retorna a parte inteira do resultado, mesmo que o resultado seja um float
+    pontos_a_perder = (chute - numero_secreto) / 2.0
+    
+    # pontos_ate_agora = pontos_ate_agora - pontos_a_perder
+    # ou
+    pontos_ate_agora -= pontos_a_perder
 
     # invocando a função verifica_se_acertou
     # if verifica_se_acertou(numero_secreto, chute)
@@ -98,3 +116,5 @@ for tentativa in 1..limite_de_tentativas
     # ou
     break if verifica_se_acertou numero_secreto, chute
 end
+
+puts "Você ganhou #{pontos_ate_agora} pontos."
