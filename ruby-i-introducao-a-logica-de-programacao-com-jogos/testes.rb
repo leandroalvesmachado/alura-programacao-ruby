@@ -84,3 +84,7 @@ puts "#{nome} tem #{nome.size} caracteres"
 # interpretador do ruby, chamasse irb, comandos pelo terminal
 # para descobrir os metodos que existem para um string. 
 # Ex: nome = "Leandro" (cria a variavel), em seguida nome.methods (lista todos os metodos que uma variavel do tipo string possui)
+
+# contrario do if é o unless (!if)
+unless nome.size > 0
+end

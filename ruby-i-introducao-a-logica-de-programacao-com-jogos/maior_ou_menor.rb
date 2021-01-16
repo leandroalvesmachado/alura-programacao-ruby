@@ -28,7 +28,10 @@ def sorteia_numero_secreto
     # cuidado em definir uma variável com escopo global, qualquer lugar ela pode ser alterada
     # pode ser acessada por qualquer indivíduo com o código
     # o melhor é sempre encapsular da melhor forma
-    sorteado = 175
+    # sorteado = 175
+
+    # gera um numero aletorio, entre 0 ate 200 
+    sorteado = rand(200)
     puts "Escolhido... que tal adivinhar hoje nosso número secreto?"
 
     # toda função ruby retorna a ultima instrução da função por padrão
@@ -103,7 +106,8 @@ for tentativa in 1..limite_de_tentativas
 
     # quando se usa algum numero com casa decimais (ponto flutuante), o retorno é um numero de ponto flutuante (float)
     # quando a conta é realizada entre números inteiros, apenas retorna a parte inteira do resultado, mesmo que o resultado seja um float
-    pontos_a_perder = (chute - numero_secreto) / 2.0
+    # abs retorna o número absoluto (sempre positivo). Ex: -2 = 2, +2 = 2
+    pontos_a_perder = (chute - numero_secreto).abs / 2.0
     
     # pontos_ate_agora = pontos_ate_agora - pontos_a_perder
     # ou
