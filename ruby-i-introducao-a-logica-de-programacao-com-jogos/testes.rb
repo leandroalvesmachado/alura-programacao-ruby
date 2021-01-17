@@ -88,3 +88,10 @@ puts "#{nome} tem #{nome.size} caracteres"
 # contrario do if é o unless (!if)
 unless nome.size > 0
 end
+
+# resto da divisão (modulo)
+# resposta igual a 3
+puts 13 % 5
+
+# operadores basicos (/, %, +, -, *)
+# operadores resumidos += 1, -= 2, *= 2, /= 4, %= 10
