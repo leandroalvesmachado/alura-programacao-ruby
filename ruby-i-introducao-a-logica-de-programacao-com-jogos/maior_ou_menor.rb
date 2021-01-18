@@ -196,7 +196,9 @@ dificuldade = pede_dificuldade
 
 # loop infinito, ate a condição de sair ser escolhida
 loop do
-	joga nome, dificuldade
+    joga nome, dificuldade
+    # o ? é usado quando geralmente se esta fazendo uma pergunta, para ficar mais claro que é uma pergunta para o programador
+    # tb quando o metodo ou função é uma pergunta
 	break if nao_quer_jogar?
 end
 
