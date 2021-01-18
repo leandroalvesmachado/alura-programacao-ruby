@@ -94,6 +94,8 @@ def pede_um_numero(chutes, tentativa, limite_de_tentativas)
 
     # to_i converter para inteiro
     chute.to_i
+    # ou
+    # return chute.to_i
 end
 
 def ganhou
@@ -143,23 +145,38 @@ def verifica_se_acertou(numero_secreto, chute)
 end
 
 def joga(nome, dificuldade)
+    # ou numero_secreto = sorteia_numero_secreto(dificuldade)
 	numero_secreto = sorteia_numero_secreto dificuldade
 
 	limite_de_tentativas = 5
 	chutes = []
 	pontos_ate_agora = 1000
 
-	for tentativa in 1..limite_de_tentativas
-		chute = pede_um_numero chutes, tentativa, limite_de_tentativas
+    # executando qtd limite_de_tentativas
+    for tentativa in 1..limite_de_tentativas
+        # ou chute = pede_um_numero(chutes, tentativa, limite_de_tentativas)
+        chute = pede_um_numero chutes, tentativa, limite_de_tentativas
+        
+        # insere um valor na ultima posição do array
 		chutes << chute
 
-		if nome == "Guilherme"
+		if nome == "Leandro"
 			ganhou
 			break
 		end
 
-		pontos_a_perder = (chute - numero_secreto).abs / 2.0
-		pontos_ate_agora = pontos_ate_agora - pontos_a_perder
+        # quando se usa algum numero com casa decimais (ponto flutuante), o retorno é um numero de ponto flutuante (float)
+        # quando a conta é realizada entre números inteiros, apenas retorna a parte inteira do resultado, mesmo que o resultado seja um float
+        # abs retorna o número absoluto (sempre positivo). Ex: -2 = 2, +2 = 2
+        pontos_a_perder = (chute - numero_secreto).abs / 2.0
+        
+        # pontos_ate_agora = pontos_ate_agora - pontos_a_perder
+        # ou
+        pontos_ate_agora = pontos_ate_agora - pontos_a_perder
+        
+        # break if verifica_se_acertou numero_secreto, chute
+        # ou
+        # if verifica_se_acertou(numero_secreto, chute)
 		if verifica_se_acertou numero_secreto, chute
 			break
 		end
@@ -184,59 +201,59 @@ loop do
 end
 
 
-# invocando a função da_boas_vindas
-nome = da_boas_vindas
+# # invocando a função da_boas_vindas
+# nome = da_boas_vindas
 
-# função que pergunta a dificuldade
-dificuldade = pede_dificuldade
+# # função que pergunta a dificuldade
+# dificuldade = pede_dificuldade
 
-# invocando a função sorteia_numero_secreto
-# numero_secreto guardando o retorno da função
-# numero_secreto = sorteia_numero_secreto(dificuldade)
-numero_secreto = sorteia_numero_secreto dificuldade
+# # invocando a função sorteia_numero_secreto
+# # numero_secreto guardando o retorno da função
+# # numero_secreto = sorteia_numero_secreto(dificuldade)
+# numero_secreto = sorteia_numero_secreto dificuldade
 
-pontos_ate_agora = 1000
-limite_de_tentativas = 5
-chutes = []
+# pontos_ate_agora = 1000
+# limite_de_tentativas = 5
+# chutes = []
 
-# executando qtd limite_de_tentativas
-for tentativa in 1..limite_de_tentativas
-    # chute = pede_um_numero(tentativa, limite_de_tentativas)
-    # ou
-    chute = pede_um_numero chutes, tentativa, limite_de_tentativas
+# # executando qtd limite_de_tentativas
+# for tentativa in 1..limite_de_tentativas
+#     # chute = pede_um_numero(tentativa, limite_de_tentativas)
+#     # ou
+#     chute = pede_um_numero chutes, tentativa, limite_de_tentativas
 
-    # insere um valor na ultima posição do array
-    chutes << chute
+#     # insere um valor na ultima posição do array
+#     chutes << chute
 
-    # quando se usa algum numero com casa decimais (ponto flutuante), o retorno é um numero de ponto flutuante (float)
-    # quando a conta é realizada entre números inteiros, apenas retorna a parte inteira do resultado, mesmo que o resultado seja um float
-    # abs retorna o número absoluto (sempre positivo). Ex: -2 = 2, +2 = 2
-    pontos_a_perder = (chute - numero_secreto).abs / 2.0
+#     # quando se usa algum numero com casa decimais (ponto flutuante), o retorno é um numero de ponto flutuante (float)
+#     # quando a conta é realizada entre números inteiros, apenas retorna a parte inteira do resultado, mesmo que o resultado seja um float
+#     # abs retorna o número absoluto (sempre positivo). Ex: -2 = 2, +2 = 2
+#     pontos_a_perder = (chute - numero_secreto).abs / 2.0
     
-    # pontos_ate_agora = pontos_ate_agora - pontos_a_perder
-    # ou
-    pontos_ate_agora -= pontos_a_perder
+#     # pontos_ate_agora = pontos_ate_agora - pontos_a_perder
+#     # ou
+#     pontos_ate_agora -= pontos_a_perder
 
-    # invocando a função verifica_se_acertou
-    # if verifica_se_acertou(numero_secreto, chute)
-    #     break
-    # end
-    # ou
-    break if verifica_se_acertou numero_secreto, chute
-end
+#     # invocando a função verifica_se_acertou
+#     # if verifica_se_acertou(numero_secreto, chute)
+#     #     break
+#     # end
+#     # ou
+#     break if verifica_se_acertou numero_secreto, chute
+# end
 
-def quer_jogar(nome, dificuldade)
-    pus "Deseja jogar novamente? (S/N)"
-    quero_jogar = gets.strip
+# def quer_jogar(nome, dificuldade)
+#     pus "Deseja jogar novamente? (S/N)"
+#     quero_jogar = gets.strip
 
-    # retorna true ou false
-    # return quero_jogar == "S"
-    # ou mesma coisa
-    # upcase texto em maiuscula
-    quero_jogar.upcase == "S"
-end
+#     # retorna true ou false
+#     # return quero_jogar == "S"
+#     # ou mesma coisa
+#     # upcase texto em maiuscula
+#     quero_jogar.upcase == "S"
+# end
 
-def joga(nome, dificuldade)
-end
+# def joga(nome, dificuldade)
+# end
 
-puts "Você ganhou #{pontos_ate_agora} pontos."
+# puts "Você ganhou #{pontos_ate_agora} pontos."
