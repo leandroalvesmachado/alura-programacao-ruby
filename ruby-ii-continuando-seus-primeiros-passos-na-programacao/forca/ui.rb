@@ -39,12 +39,14 @@ def da_boas_vindas
 end
 
 
-def escolhe_palavra_secreta
+def avisa_escolhendo_palavra
     puts "Escolhendo uma palavra secreta..."
-    palavra_secreta = "programador"
+end
+
+
+def avisa_palavra_escolhida(palavra_secreta)
     puts "Palavra secreta com #{palavra_secreta.size} letras... boa sorte!"
-    
-    # equivalente a return palavra_secreta
+
     palavra_secreta
 end
 

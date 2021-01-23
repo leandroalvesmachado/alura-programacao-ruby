@@ -1,6 +1,20 @@
 # importando arquivo do mesmo diretorio (require_relative) ui.rb, não precisa da extensão
 require_relative 'ui'
 
+def escolhe_palavra_secreta
+    avisa_escolhendo_palavra
+
+    # lendo arquivo de texto
+    texto = File.read("dicionario.txt")
+    # quebrando o texto a cada \n (quebra de linha)
+    todas_as_palavras = texto.split "\n"
+    numero_escolhido = rand(todas_as_palavras.size)
+    palavra_secreta = todas_as_palavras[numero_escolhido]
+    avisa_palavra_escolhida palavra_secreta
+    
+    # equivalente a return palavra_secreta
+    palavra_secreta
+end
 
 def palavra_mascarada(chutes, palavra_secreta)
     mascara = ""
