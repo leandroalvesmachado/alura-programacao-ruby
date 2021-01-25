@@ -7,3 +7,15 @@ def da_boas_vindas
 
     nome
 end
+
+
+def desenha(mapa)
+    puts mapa
+end
+
+
+def pede_movimento
+    puts "Para onde deseja ir?"
+    #recebe o movimento digitado pelo usuário no terminal
+    movimento = gets.strip
+end
