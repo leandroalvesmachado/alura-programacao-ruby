@@ -1,3 +1,5 @@
+# nil = null no ruby
+
 def da_boas_vindas
     puts "Bem vindo ao Foge-Foge"
     puts "Qual é o seu nome?"
